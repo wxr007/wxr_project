@@ -1,0 +1,17 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>submmit Page</title>
+<script>
+function showPath()
+{
+	var dataUrl = window.location.search;
+	document.getElementById("showname").innerHTML = dataUrl;
+}
+</script>
+</head>
+<body onload="showPath()">
+<p>this is submit</p>
+<p id="showname"></p>
+</body>
+</html>

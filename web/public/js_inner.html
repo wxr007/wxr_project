@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>js inner</title>
+<meta charset="utf-8">
+<script>
+function ReplaceElement()
+{
+	document.getElementById("demo").innerHTML="我的第一个 JavaScript 函数";
+}
+function ShowDate() 
+{
+   	document.write(Date());
+}
+function displayDate()
+{
+document.getElementById("demo").innerHTML=Date();
+}
+function checkage()
+{
+	var age,voteable;
+	age=document.getElementById("age").value;
+	voteable=(age<18)?"年龄太小":"年龄已达到";
+	document.getElementById("agecheck").innerHTML=voteable;
+}
+function add(x,y)
+{
+	return x + y;
+}
+function showadd()
+{	
+	var x ,y;
+	x = parseInt(document.getElementById("x").value);//parseInt 转换成整数
+	y = Number(document.getElementById("y").value);//Number 转换成数字
+	var sum = add(x,y);
+	document.getElementById("sum").value =sum;
+}
+function loopNum()
+{
+	var x="";
+	for (var i=0;i<5;i++)
+	{
+		x=x + "The number is " + i + "<br>";
+	}
+	document.getElementById("loopshow").innerHTML=x;
+}
+function validateForm()
+{
+  var x=document.forms["myForm"]["fname"].value;
+  if (x==null || x=="")
+  {
+  alert("姓必须填写");
+  return false;
+  }
+}
+function mOver(obj)
+{
+	obj.innerHTML="Thank You"
+}
+
+function mOut(obj)
+{
+	obj.innerHTML="Mouse Over Me"
+}
+</script>
+</head>
+<body>
+<h1>我的 Web 页面</h1>
+<p id="pos">头部定位点</p>
+<p id="demo">一个段落</p>
+<p><button type="button" onclick="ReplaceElement()">替换段落</button></p>
+<p><button onclick="ShowDate()">显示时间</button></p>
+<p><button onclick="displayDate()">本页显示时间</button></p>
+<p>==============================</p>
+<p>点击按钮检测年龄。</p>
+年龄:<input id="age" value="18" />
+<p>是否达到投票年龄?</p>
+<button onclick="checkage()">检查年龄</button>
+<p id="agecheck">未检查年龄</p>
+<p>==============================</p>
+<p>加法</p>
+<input type="number" id="x" /> + <input type="number" id="y" /> = <input type="number" id="sum" readOnly=true />
+<p><button type="button" onclick="showadd()">加</button></p>
+<p>==============================</p>
+<p>循环</p>
+<p><input type="button" value="循环" onclick="loopNum()"></button></p>
+<p id="loopshow">循环显示</p>
+<p>==============================</p>
+<p>表单验证</p>
+<form name="myForm" action="submit_result.html" onsubmit="return validateForm()" method="get">
+姓: <input type="text" name="fname">
+<input type="submit" value="提交">
+</form>
+<p>==============================</p>
+<a href="javascript:void(alert('Warning!!!'))">点我!</a><br>
+<a href="#pos">点我定位到指定位置!</a>
+<p>==============================</p>
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+</body>
+</html>

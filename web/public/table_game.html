@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+  background: #E7E7E7;
+  font: normal 20px "Helvetica Neue", Helvetica, Arial, freesans, sans-serif; }
+
+table {
+  table-layout: fixed;
+  border: 5px solid #FFFFFF;
+  float: left; }
+  
+p {
+	line-height:20%;
+	font-size: 3px;
+}
+  
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: center; }
+</style>
+<!-- <script src="script/game_tables.js"></script> -->
+<script src="script/game_tables.js"></script>
+<script>
+
+</script>
+<title>table Page</title>
+</head>
+<body onload = "ShowTable(5,5)">
+<!-- <p><button onclick="ShowTable(4,4)">显示表格</button></p> -->
+<div id = "describe">
+<p>游戏说明：</p>
+<p>1.玩家控制红色队伍，格子内的颜色表示格子属于该颜色的正营，格子内的数字表示该拥有的骰子数量。</p>
+<p>2.在某个颜色的玩家回合内,该玩家可以选取该玩家所属格子进攻周围其他颜色的格子。</p>
+<p>3.当进攻方所有骰子累加的和大于防守方所有骰子累加的和，进攻方胜利防守方失败。防守方的格子被进攻方占有，进攻方将骰子留下1个，其余骰子都移动到占领的格子。</p>
+<p>4.当进攻方所有骰子累加的和小于等于防守方所有骰子累加的和，进攻方失败防守方胜利。防守方的格子不变，进攻方格子的骰子数变为1个。</p>
+<p>5.玩家操作结束后，可以点击【下一回合】将操作操作权交给下个玩家。同时该玩家所属的所有格子的骰子数增加1，每个格子的骰子数为上限6个。</p>
+</div>
+<div id = "turn_show"></div>
+<div id = "cell_show"></div>
+<div id = "attack_show"></div>
+<div id = "defence_show"></div>
+<div id = "result_show"></div>
+<p>
+	<button onclick="PlayerCtrl.PlayerNext()">下一回合</button>
+</p>
+<div id = "table_show"></div>
+</body>
+</html>

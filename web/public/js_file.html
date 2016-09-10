@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>js file</title>
+<meta charset="utf-8">
+<script src="script/script_file.js"></script>
+<script>
+function showInPage(txt)
+{
+	document.getElementById("showdemo").innerHTML = txt
+}
+</script>
+</head>
+<body>
+<p id="showdemo">显示段落</p>
+<p><button type="button" onclick="myFunction()">文件调用</button></p>
+<p><button type="button" onclick="showInPage(testValue())">打印值</button></p>
+<p><button type="button" onclick="showInPage(add(3,4))">加</button></p>
+<p><button type="button" onclick="showInPage(getweekday())">今天星期几？</button></p>
+<p><button type="button" onclick="showInPage(loopObj())">循环对象</button></p>
+<p><button type="button" onclick="showInPage(whileShowCar())">循环car</button></p>
+<p><button type="button" onclick="showInPage(showType())">显示类型</button></p>
+<p><button type="button" onclick="showInPage(showConstructor())">显示构造函数</button></p>
+</body>
+</html>

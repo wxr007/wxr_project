@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var clickCount = 0;
+function showJson(obj)
+{
+	var i;
+	var text="";
+	for(i in obj)
+	{
+		text += obj[i] + "<br>";
+	}
+	return text;
+}
+function loadXMLDoc()
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  }
+  else
+  {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+  xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      var content = JSON.parse(xmlhttp.responseText);
+	  var person = content.person;
+	 //document.getElementById("myDiv").innerHTML=person;
+	  document.getElementById("myDiv").innerHTML=showJson(person);
+     // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+	 addClickCount()
+    }
+  }
+  xmlhttp.open("GET","/public/script/ajax.json",true);
+  xmlhttp.send();
+}
+function addClickCount()
+{
+	clickCount++;
+	document.getElementById("count").innerHTML=clickCount;
+}
+</script>
+</head>
+<body>
+
+<h2>AJAX</h2>
+<div id="count"></div>
+<button type="button" onclick="loadXMLDoc()">Request data</button>
+<div id="myDiv"></div>
+
+</body>
+</html>
